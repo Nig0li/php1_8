@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background-color: azure;
+}
+
+#site {
+    width: 70%;
+    min-height: 100%;
+    margin: 0 auto;
+    outline: 2px solid slategrey;
+    font-family: italic;
+}
+
+/*  -- Все ссылки -- */
+#strong {
+    color: darkcyan;
+}
+#strong, a {
+    margin-right: 15px;
+}
+#site a {
+    text-decoration: none;
+    color: black;
+}
+#site a:hover {
+    color: darkcyan;
+}
+    /*  -- Шапка сайта -- */
+    #header {
+        height: 100px;
+        width: 100%;
+        border-bottom: 2px solid slategrey;
+    }
+        #header h1 {
+            font-size: 70px;
+            text-align: center;
+        }
+        #header #admin {
+            font-size: 20px;
+        }
+
+    /*  -- Контент -- */
+    #content {
+        font-size: 50px;
+        text-align: center;
+    }
+        #content #cont {
+            font-size: 40px;
+        }
+
+        #content #links {
+            font-size: 30px;
+        }
+
+    /*  -- Таблица расписания поездов -- */
+    table {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 50px;
+        font-size: 25px;
+    }
+    table, td {
+        outline: 2px solid slategrey;
+    }
+        td {
+            padding: 10px;
+        }
+
+/* Админ панель */
+#admin #content {
+    font-size: 20px;
+    text-align: left;
+}
+#admin #res { /* Результат изменений */
+    text-align: center;
+}
+    #admin #content h1 { /* Заголовок "Админ-панель" */
+        text-align: center;
+    }
+    #admin #content strong { /* Заголови разделов для изменения */
+        font-size: 30px;
+    }
+    #main, #gallery, #trains { /* Разделы: Главная, Галерея, Расписание */
+        border-bottom: 2px solid slategrey;
+        padding: 20px;
+    }
+    #admin p {
+        text-align: left;
+    }
