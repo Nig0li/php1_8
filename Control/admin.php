@@ -6,11 +6,11 @@ use Site\View\classes\View;
 require __DIR__ . '/../autoload.php';
 
 /* -- Точка входа в админ панель -- */
-
+$view = new View();
 /* -- Первое посещение, пустая страница -- */
 if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galleryDel'])
     && empty($_POST['trainsDel']) && empty($_POST['trainsUp']) && empty($_POST['trainsIns'])) {
-    View::admin('adminPan.php');
+    $view->admin('adminPan.php');
     die;
 } else { /* -- Обработка данных пришедшие из формы -- */
 
@@ -22,7 +22,7 @@ if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galler
             'text' => $_POST['text'],];
         //$user = new User();
         $admin->updateMainPage($mass); /* -- Получение результата выполнения запроса к БД -- */
-        View::admin('adminPan.php', $res); /* -- Вывод шаблона с результатом -- */
+        $view->admin('adminPan.php', $res); /* -- Вывод шаблона с результатом -- */
         //header('Location: /Control/admin.php'); /* -- Для варианта -- */
     }
 
@@ -30,7 +30,7 @@ if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galler
     if (isset($_POST['galleryIns'])) {
         $mass = $_FILES['file'];
         $admin->insertImage($mass); /* -- Добавить фото -- */
-        View::admin('adminPan.php', $res);
+        $view->admin('adminPan.php', $res);
         //header('Location: /Control/admin.php');
     }
     if (isset($_POST['galleryDel'])) {
@@ -38,7 +38,7 @@ if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galler
             'id' => $_POST['id'],
         ];
         $admin->deleteImage($mass); /* -- Удалить фото -- */
-        View::admin('adminPan.php', $res);
+        $view->admin('adminPan.php', $res);
         //header('Location: /Control/admin.php');
     }
 
@@ -48,7 +48,7 @@ if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galler
             'id' => $_POST['id'],
         ];
         $admin->deleteRecordTrains($mass); /* -- Удалить запись -- */
-        View::admin('adminPan.php', $res);
+        $view->admin('adminPan.php', $res);
         //header('Location: /Control/admin.php');
     }
     if (isset($_POST['trainsUp'])) {
@@ -61,7 +61,7 @@ if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galler
             'timeTravel' => $_POST['timeTravel'],
         ];
         $admin->updateRecordTrains($mass); /* -- Обновить запись -- */
-        View::admin('adminPan.php', $res);
+        $view->admin('adminPan.php', $res);
         //header('Location: /Control/admin.php');
     }
     if (isset($_POST['trainsIns'])) {
@@ -73,7 +73,7 @@ if (empty($_POST['main']) && empty($_POST['galleryIns']) && empty($_POST['galler
             'timeTravel' => $_POST['timeTravel'],
         ];
         $admin->insertRecordTrains($mass); /* -- Добавить запись -- */
-        View::admin('adminPan.php', $res);
+        $view->admin('adminPan.php', $res);
         //header('Location: /Control/admin.php');
     }
 }

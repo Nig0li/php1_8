@@ -17,7 +17,7 @@ class View
         include __DIR__. '/../templates/' . $template;
     }
 
-    public static function admin($template, $res = '')
+    public function admin($template, $res = '')
     {
         include __DIR__. '/../templates/' . $template;
         return $res;
