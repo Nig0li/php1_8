@@ -4,7 +4,7 @@ namespace Site\Models\table;
 
 use Site\Models\Ancestor;
 
-class Main extends Ancestor
+class MainRecord extends Ancestor
 {
     const TABLE = 'main';
 

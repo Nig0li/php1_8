@@ -3,9 +3,9 @@
 namespace Site\Models;
 
 
-class Admin
+class User
 {
-    protected static function ident($sql, $mas) //Запрос к БД
+    protected function ident($sql, $mas) //Запрос к БД
     {
         $db = new DB();
         $res = $db->execute($sql, $mas);
@@ -18,7 +18,7 @@ class Admin
     }
 
     /* Главная страница*/
-    public static function updateMain($mass) //Обновить главную страниу
+    public function updateMainPage($mass) //Обновить главную страниу
     {
         //var_dump($mass);
         $sql = 'UPDATE main SET title=:title, text=:text WHERE id=1'; //Строка только одна
@@ -31,7 +31,7 @@ class Admin
     }
 
     /* Фотогалерея*/
-    public static function insertGallery($mass) //Добавить фотографию
+    public function insertImage($mass) //Добавить фотографию
     {
         if (0 !== $mass['error']) {
             $res = 'Файл не загружен';
@@ -44,7 +44,7 @@ class Admin
         return $res;
     }
 
-    public static function deleteGallery($mass) //Удалить фото по Id
+    public function deleteImage($mass) //Удалить фото по Id
     {
         $sql = 'DELETE FROM gallery WHERE id=:id';
         $mass = [
@@ -59,7 +59,7 @@ class Admin
     }
 
     /* Расписание поездов*/
-    public static function deleteTrains($mass) //Удалить запись по Id
+    public function deleteRecordTrains($mass) //Удалить запись по Id
     {
         $sql = 'DELETE FROM trains WHERE id=:id';
         $mass = [
@@ -73,7 +73,7 @@ class Admin
         return $res;
     }
 
-    public static function updateTrains($mass) //Обновить запись
+    public function updateRecordTrains($mass) //Обновить запись
     {
         $sql = 'UPDATE trains
                 SET dat=:dat, numb=:numb, timeDep=:timeDep, timeArr=:timeArr, timeTravel=:timeTravel
@@ -94,7 +94,7 @@ class Admin
         return $res;
     }
 
-    public static function insertTrains($mass) // Добавить запись
+    public function insertRecordTrains($mass) // Добавить запись
     {
         $sql = 'INSERT INTO trains(dat, numb, timeDep, timeArr, timeTravel)
                 VALUES (:dat, :numb, :timeDep, :timeArr, :timeTravel)';

@@ -4,7 +4,7 @@ namespace Site\Models\table;
 
 use Site\Models\Ancestor;
 
-class Trains extends Ancestor
+class TimetableRecord extends Ancestor
 {
     const TABLE = 'trains';
 

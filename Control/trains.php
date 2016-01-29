@@ -1,11 +1,11 @@
 <?php
-use Site\Models\table\Trains;
+use Site\Models\table\TimetableRecord;
 use Site\View\classes\View;
 
 require __DIR__ . '/../autoload.php';
 
 /* -- Получение массива записей из БД -- */
-$res = Trains::findAll();
+$res = TimetableRecord::findAll();
 
 /* -- Передача полученного массива в шаблон -- */
 $obView = new View();

@@ -5,7 +5,7 @@ namespace Site\Models\table;
 
 use Site\Models\Ancestor;
 
-class Gallery extends Ancestor
+class Image extends Ancestor
 {
     const TABLE = 'gallery';
 
